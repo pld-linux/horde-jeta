@@ -42,15 +42,11 @@ Jeta is the Horde module that provides a Java SSH interface to login
 to the webserver (or another server with the use of additional relay
 software).
 
-
 %prep
 %setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
 tar zxf %{SOURCE0} --strip-components=1
 
 rm config/.htaccess lib/.htaccess
-#for i in config/*.dist; do
-#	mv $i config/$(basename $i .dist)
-#done
 # considered harmful (horde/docs/SECURITY)
 rm test.php
 
@@ -97,7 +93,6 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 %attr(660,root,http) %config(noreplace) %{_sysconfdir}/conf.php
 %attr(660,root,http) %config(noreplace) %ghost %{_sysconfdir}/conf.php.bak
-#%attr(640,root,http) %config(noreplace) %{_sysconfdir}/[!c]*.php
 %attr(640,root,http) %{_sysconfdir}/conf.xml
 
 %dir %{_appdir}
