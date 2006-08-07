@@ -3,7 +3,7 @@
 %define	_hordeapp jeta
 #define	_snap	2006-08-06
 %define	_rc		rc1
-%define	_rel	0.1
+%define	_rel	0.2
 
 %include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java Telnet App
@@ -58,7 +58,7 @@ cp -a *.php $RPM_BUILD_ROOT%{_appdir}
 cp -a config/* $RPM_BUILD_ROOT%{_sysconfdir}
 echo '<?php ?>' > $RPM_BUILD_ROOT%{_sysconfdir}/conf.php
 touch $RPM_BUILD_ROOT%{_sysconfdir}/conf.php.bak
-cp -a lib locale templates themes $RPM_BUILD_ROOT%{_appdir}
+cp -a lib locale templates themes jar $RPM_BUILD_ROOT%{_appdir}
 
 ln -s %{_sysconfdir} $RPM_BUILD_ROOT%{_appdir}/config
 ln -s %{_docdir}/%{name}-%{version}/CREDITS $RPM_BUILD_ROOT%{_appdir}/docs
@@ -103,3 +103,5 @@ fi
 %{_appdir}/locale
 %{_appdir}/templates
 %{_appdir}/themes
+
+%{_appdir}/jar
