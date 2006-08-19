@@ -1,6 +1,5 @@
 # TODO
 # - lighttpd support
-# - pl summary
 %define	_hordeapp jeta
 #define	_snap	2006-08-06
 %define	_rc		rc1
@@ -8,6 +7,7 @@
 
 %include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java Telnet App
+Summary(pl):	Wrapper dla Java Telnet App
 Name:		horde-%{_hordeapp}
 Version:	1.0
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
@@ -45,8 +45,8 @@ software).
 
 %description -l pl
 Jeta to modu³ Horde, który dostarcza interfejs Java SSH, s³u¿±cy do
-po³±czenia siê na serwer WWW (albo inny serwer korzystaj±cy z
-protoko³u SSH).
+po³±czenia siê na serwer WWW (albo inny serwer z u¿yciem dodatkowego
+programu przekazuj±cego).
 
 %prep
 %setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
