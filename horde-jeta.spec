@@ -2,7 +2,7 @@
 # - lighttpd support
 %define	_hordeapp jeta
 #define	_snap	2006-08-06
-%define	_rc		rc1
+#define	_rc		rc1
 %define	_rel	1
 
 %include	/usr/lib/rpm/macros.php
@@ -13,9 +13,9 @@ Version:	1.0
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
 License:	GPL v2 (CHECK IT FIRST, could be ASL)
 Group:		Applications/WWW
-#Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
-Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
-# Source0-md5:	c43821fa66713a6414724b4728b8178b
+Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
+# Source0-md5:	674449d79e603db2fa88c6de8882ccd4
+#Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
 #Source0:	ftp://ftp.horde.org/pub/snaps/%{_snap}/%{_hordeapp}-HEAD-%{_snap}.tar.gz
 Source1:	%{_hordeapp}.conf
 URL:		http://www.horde.org/jeta/
@@ -53,6 +53,9 @@ programu przekazuj±cego).
 tar zxf %{SOURCE0} --strip-components=1
 
 rm config/.htaccess lib/.htaccess
+for i in config/*.dist; do
+	mv $i config/$(basename $i .dist)
+done
 # considered harmful (horde/docs/SECURITY)
 rm test.php
 
@@ -99,6 +102,7 @@ fi
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 %attr(660,root,http) %config(noreplace) %{_sysconfdir}/conf.php
 %attr(660,root,http) %config(noreplace) %ghost %{_sysconfdir}/conf.php.bak
+%attr(640,root,http) %config(noreplace) %{_sysconfdir}/[!c]*.php
 %attr(640,root,http) %{_sysconfdir}/conf.xml
 
 %dir %{_appdir}
