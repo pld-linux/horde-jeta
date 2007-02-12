@@ -7,7 +7,7 @@
 
 %include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java Telnet App
-Summary(pl):	Wrapper dla Java Telnet App
+Summary(pl.UTF-8):   Wrapper dla Java Telnet App
 Name:		horde-%{_hordeapp}
 Version:	1.0
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
@@ -43,10 +43,10 @@ Jeta is the Horde module that provides a Java SSH interface to login
 to the webserver (or another server with the use of additional relay
 software).
 
-%description -l pl
-Jeta to modu³ Horde, który dostarcza interfejs Java SSH, s³u¿±cy do
-po³±czenia siê na serwer WWW (albo inny serwer z u¿yciem dodatkowego
-programu przekazuj±cego).
+%description -l pl.UTF-8
+Jeta to moduÅ‚ Horde, ktÃ³ry dostarcza interfejs Java SSH, sÅ‚uÅ¼Ä…cy do
+poÅ‚Ä…czenia siÄ™ na serwer WWW (albo inny serwer z uÅ¼yciem dodatkowego
+programu przekazujÄ…cego).
 
 %prep
 %setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
