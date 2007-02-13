@@ -7,7 +7,7 @@
 
 %include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java Telnet App
-Summary(pl.UTF-8):   Wrapper dla Java Telnet App
+Summary(pl.UTF-8):	Wrapper dla Java Telnet App
 Name:		horde-%{_hordeapp}
 Version:	1.0
 Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
