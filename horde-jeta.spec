@@ -1,22 +1,17 @@
 # TODO
 # - lighttpd support
 %define	_hordeapp jeta
-#define	_snap	2006-08-06
-#define	_rc		rc1
-%define	_rel	2
 
 %include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java Telnet App
 Summary(pl.UTF-8):	Wrapper dla Java Telnet App
 Name:		horde-%{_hordeapp}
 Version:	1.0
-Release:	%{?_rc:0.%{_rc}.}%{?_snap:0.%(echo %{_snap} | tr -d -).}%{_rel}
+Release:	2
 License:	GPL v2 (CHECK IT FIRST, could be ASL)
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
 # Source0-md5:	674449d79e603db2fa88c6de8882ccd4
-#Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}-%{_rc}.tar.gz
-#Source0:	ftp://ftp.horde.org/pub/snaps/%{_snap}/%{_hordeapp}-HEAD-%{_snap}.tar.gz
 Source1:	%{_hordeapp}.conf
 URL:		http://www.horde.org/jeta/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
@@ -49,8 +44,7 @@ połączenia się na serwer WWW (albo inny serwer z użyciem dodatkowego
 programu przekazującego).
 
 %prep
-%setup -qcT -n %{?_snap:%{_hordeapp}-%{_snap}}%{!?_snap:%{_hordeapp}-%{version}%{?_rc:-%{_rc}}}
-tar zxf %{SOURCE0} --strip-components=1
+%setup -q
 
 rm config/.htaccess lib/.htaccess
 for i in config/*.dist; do
