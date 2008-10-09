@@ -42,7 +42,7 @@ połączenia się na serwer WWW (albo inny serwer z użyciem dodatkowego
 programu przekazującego).
 
 %prep
-%setup -q
+%setup -q -n %{_hordeapp}-h3-%{version}
 
 rm config/.htaccess lib/.htaccess
 for i in config/*.dist; do
