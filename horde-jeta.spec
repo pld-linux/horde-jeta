@@ -3,12 +3,12 @@
 %define	_hordeapp jeta
 
 %include	/usr/lib/rpm/macros.php
-Summary:	Wrapper around the Java Telnet App
-Summary(pl.UTF-8):	Wrapper dla Java Telnet App
+Summary:	Wrapper around the Java SSH App
+Summary(pl.UTF-8):	Wrapper dla Java SSH App
 Name:		horde-%{_hordeapp}
 Version:	1.0
-Release:	2
-License:	GPL v2 (CHECK IT FIRST, could be ASL)
+Release:	3
+License:	GPL v2
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
 # Source0-md5:	674449d79e603db2fa88c6de8882ccd4
