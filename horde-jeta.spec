@@ -7,18 +7,20 @@ Summary:	Wrapper around the Java SSH App
 Summary(pl.UTF-8):	Wrapper dla Java SSH App
 Name:		horde-%{_hordeapp}
 Version:	1.0
-Release:	3
+Release:	4
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
 # Source0-md5:	674449d79e603db2fa88c6de8882ccd4
-Source1:	%{_hordeapp}.conf
+Source1:	%{_hordeapp}-apache.conf
+Source2:	%{_hordeapp}-httpd.conf
 URL:		http://www.horde.org/jeta/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 BuildRequires:	rpmbuild(macros) >= 1.264
 Requires:	apache(mod_access)
 Requires:	horde >= 3.0
 Requires:	webapps
+Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,7 +65,7 @@ cp -a docs/CREDITS $RPM_BUILD_ROOT%{_appdir}/docs
 
 ln -s %{_sysconfdir} $RPM_BUILD_ROOT%{_appdir}/config
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -79,10 +81,10 @@ fi
 %triggerun -- apache1 < 1.3.37-3, apache1-base
 %webapp_unregister apache %{_webapp}
 
-%triggerin -- apache < 2.2.0, apache-base
+%triggerin -- apache-base
 %webapp_register httpd %{_webapp}
 
-%triggerun -- apache < 2.2.0, apache-base
+%triggerun -- apache-base
 %webapp_unregister httpd %{_webapp}
 
 %files
