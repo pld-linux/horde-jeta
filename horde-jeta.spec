@@ -7,7 +7,7 @@ Summary:	Wrapper around the Java SSH App
 Summary(pl.UTF-8):	Wrapper dla Java SSH App
 Name:		horde-%{_hordeapp}
 Version:	1.0
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	ftp://ftp.horde.org/pub/jeta/%{_hordeapp}-h3-%{version}.tar.gz
@@ -24,7 +24,7 @@ Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_noautoreq	'pear(Horde.*)'
+%define		_noautoreq_pear	Horde.*
 
 %define		hordedir	/usr/share/horde
 %define		_appdir		%{hordedir}/%{_hordeapp}
