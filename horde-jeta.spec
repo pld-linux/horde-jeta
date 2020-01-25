@@ -2,7 +2,6 @@
 # - lighttpd support
 %define	_hordeapp jeta
 
-%include	/usr/lib/rpm/macros.php
 Summary:	Wrapper around the Java SSH App
 Summary(pl.UTF-8):	Wrapper dla Java SSH App
 Name:		horde-%{_hordeapp}
